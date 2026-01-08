@@ -1,0 +1,46 @@
+{
+  "name": "CropAnalysis",
+  "type": "object",
+  "properties": {
+    "image_url": {
+      "type": "string",
+      "description": "URL of uploaded crop image"
+    },
+    "crop_type": {
+      "type": "string"
+    },
+    "disease_detected": {
+      "type": "string"
+    },
+    "health_score": {
+      "type": "number",
+      "description": "Health score from 0-100"
+    },
+    "symptoms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "treatment_options": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ndvi_score": {
+      "type": "number",
+      "description": "Normalized Difference Vegetation Index"
+    },
+    "language": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

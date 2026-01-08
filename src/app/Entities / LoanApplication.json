@@ -1,0 +1,153 @@
+{
+  "name": "LoanApplication",
+  "type": "object",
+  "properties": {
+    "application_id": {
+      "type": "string",
+      "description": "Unique application ID (TMB-AG-2026-XXXX format)"
+    },
+    "applicant_name": {
+      "type": "string",
+      "description": "Full name of applicant"
+    },
+    "mobile_number": {
+      "type": "string",
+      "description": "10-digit mobile number"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email address for notifications"
+    },
+    "aadhaar_number": {
+      "type": "string",
+      "description": "12-digit Aadhaar number"
+    },
+    "product_type": {
+      "type": "string",
+      "enum": [
+        "Kisan_Credit_Card",
+        "Tractor_Loan",
+        "Agri_Transport",
+        "Banana_Cultivation",
+        "Agri_Jewel_Loan",
+        "Rice_Mill_Loan",
+        "Dhall_Mill_Loan",
+        "Bhoomi_Heen_Kisan",
+        "Genset_Loan",
+        "Poultry_Broiler",
+        "Poultry_Layer",
+        "Mini_Dairy",
+        "Commercial_Dairy",
+        "Brackish_Water_Shrimp",
+        "Composite_Fish_Farm",
+        "Gold_Overdraft_Agri"
+      ]
+    },
+    "loan_amount": {
+      "type": "number",
+      "description": "Requested loan amount in rupees"
+    },
+    "crop_type": {
+      "type": "string",
+      "description": "Type of crop being cultivated"
+    },
+    "land_area": {
+      "type": "number",
+      "description": "Land area in acres"
+    },
+    "land_survey_number": {
+      "type": "string",
+      "description": "Survey number from land records"
+    },
+    "district": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "village": {
+      "type": "string"
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "doc_type": {
+            "type": "string"
+          },
+          "doc_url": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Submitted",
+        "Under_Review",
+        "Documents_Verified",
+        "Approved",
+        "Disbursed",
+        "Rejected"
+      ],
+      "default": "Submitted"
+    },
+    "status_remarks": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "english",
+        "hindi",
+        "marathi",
+        "telugu",
+        "malayalam",
+        "gujarati",
+        "punjabi",
+        "kannada"
+      ],
+      "default": "english"
+    }
+  },
+  "required": [
+    "applicant_name",
+    "mobile_number",
+    "aadhaar_number",
+    "product_type",
+    "loan_amount"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

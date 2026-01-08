@@ -1,0 +1,73 @@
+{
+  "name": "SoilAnalysis",
+  "type": "object",
+  "properties": {
+    "image_url": {
+      "type": "string"
+    },
+    "location_lat": {
+      "type": "number"
+    },
+    "location_lng": {
+      "type": "number"
+    },
+    "soil_type": {
+      "type": "string"
+    },
+    "ph_level": {
+      "type": "number"
+    },
+    "nitrogen_level": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High"
+      ]
+    },
+    "phosphorus_level": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High"
+      ]
+    },
+    "potassium_level": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High"
+      ]
+    },
+    "moisture_content": {
+      "type": "number"
+    },
+    "organic_matter": {
+      "type": "string"
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "suitable_crops": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fertilizer_recommendations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "language": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

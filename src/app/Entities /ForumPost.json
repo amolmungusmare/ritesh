@@ -1,0 +1,56 @@
+{
+  "name": "ForumPost",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    },
+    "author_name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Crop_Advice",
+        "Market_Prices",
+        "Weather",
+        "Loans",
+        "Insurance",
+        "Equipment",
+        "General"
+      ]
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "likes": {
+      "type": "number",
+      "default": 0
+    },
+    "replies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "author": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "language": {
+      "type": "string"
+    }
+  },
+  "required": [],
+  "rls": {}
+}

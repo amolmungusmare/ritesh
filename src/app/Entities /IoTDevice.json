@@ -1,0 +1,62 @@
+{
+  "name": "IoTDevice",
+  "type": "object",
+  "properties": {
+    "device_id": {
+      "type": "string"
+    },
+    "device_name": {
+      "type": "string"
+    },
+    "device_type": {
+      "type": "string",
+      "enum": [
+        "NPK_Sensor",
+        "Moisture_Probe",
+        "Weather_Station",
+        "Soil_pH_Sensor",
+        "Temperature_Sensor"
+      ]
+    },
+    "location": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "last_reading": {
+      "type": "object",
+      "properties": {
+        "nitrogen": {
+          "type": "number"
+        },
+        "phosphorus": {
+          "type": "number"
+        },
+        "potassium": {
+          "type": "number"
+        },
+        "moisture": {
+          "type": "number"
+        },
+        "temperature": {
+          "type": "number"
+        },
+        "ph": {
+          "type": "number"
+        },
+        "timestamp": {
+          "type": "string"
+        }
+      }
+    },
+    "readings_history": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "required": []
+}

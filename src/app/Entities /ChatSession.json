@@ -1,0 +1,57 @@
+{
+  "name": "ChatSession",
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "english",
+        "hindi",
+        "marathi",
+        "telugu",
+        "malayalam",
+        "gujarati",
+        "punjabi",
+        "kannada"
+      ]
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "image_url": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "topic": {
+          "type": "string"
+        },
+        "crop_discussed": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": []
+}

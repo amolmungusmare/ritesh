@@ -1,0 +1,83 @@
+{
+  "name": "InsuranceApplication",
+  "type": "object",
+  "properties": {
+    "application_id": {
+      "type": "string"
+    },
+    "applicant_name": {
+      "type": "string"
+    },
+    "mobile_number": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "aadhaar_number": {
+      "type": "string"
+    },
+    "scheme_type": {
+      "type": "string",
+      "enum": [
+        "PMFBY",
+        "WBCIS",
+        "Farmers_Package",
+        "Private_Insurance"
+      ]
+    },
+    "crop_type": {
+      "type": "string"
+    },
+    "season": {
+      "type": "string",
+      "enum": [
+        "Kharif",
+        "Rabi",
+        "Zaid"
+      ]
+    },
+    "land_area": {
+      "type": "number"
+    },
+    "sum_insured": {
+      "type": "number"
+    },
+    "premium_amount": {
+      "type": "number"
+    },
+    "district": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Applied",
+        "Under_Review",
+        "Active",
+        "Claim_Filed",
+        "Claim_Settled",
+        "Expired"
+      ],
+      "default": "Applied"
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "doc_type": {
+            "type": "string"
+          },
+          "doc_url": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": []
+}
